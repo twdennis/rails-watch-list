@@ -1,0 +1,9 @@
+<h1>Bookmarks</h1>
+<%= link_to 'New Bookmark', new_bookmark_path %>
+<div> style="padding: 10px">
+  <% @bookmarks.each do |bookmark| %>
+    <p style="border: 1px solid black; padding: 5px; background-color: #eee; border-radius: 5px;">
+    <%= bookmark.comment %>
+    <%= link_to "View bookmark", bookmark_path(bookmark) %>
+    </p>
+  <% end %>

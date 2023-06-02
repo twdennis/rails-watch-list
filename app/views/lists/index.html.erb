@@ -1,0 +1,9 @@
+<h1>Lists view</h1>
+<%= link_to 'New List', new_list_path %>
+<div style="padding: 10px">
+  <% @lists.each do |list| %>
+    <p style="border: 1px solid black; padding: 5px; background-color: #eee; border-radius: 5px;">
+    <%= link_to list.name, list_path(list) %>
+    </p>
+  <% end %>
+</div>

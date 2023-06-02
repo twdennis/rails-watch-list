@@ -1,0 +1,22 @@
+<h1><%= @list.name %></h1>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+  <% if @list.movies.length > 0 %>
+    <% @list.bookmarks.each do |bookmark| %>
+      <% movie = bookmark.movie %>
+      <div style="background-color: #f2f2f2; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); width: 200px; position: relative;">
+        <h3 style="margin: 0; font-size: 18px; color: #333;"><%= bookmark.movie.title %></h3>
+        <p style="margin: 8px 0; font-size: 14px; color: #666;"><%= bookmark.movie.overview %></p>
+        <div style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);">
+          <%= button_to list_bookmark_path(@list, bookmark), method: :delete, data: { confirm: 'Are you sure?' }, style: "color: dark-blue; border: 1px; padding: 10px 20px; font-size: 24px; border-radius: 50%; cursor: pointer; transition: background-color 0.3s ease;" do %>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+      <%= image_tag movie.poster_url, alt: "Movie poster", width: 200 %>
+    <% end %>
+  <% else %>
+    <p>This list is empty.</p>
+  <% end %>
+</div>
+<a href="<%= new_list_bookmark_path(@list) %>" style="display: inline-block; padding: 10px 20px; margin-top: 10px; background-color: #4caf50; color: white; text-decoration: none; border-radius: 4px; font-size: 16px; border: none; cursor: pointer; transition: background-color 0.3s ease;">Add a new movie</a><br>
+<a href="<%= lists_path %>" style="display: inline-block; padding: 10px 20px; margin-top: 10px; background-color: #4caf50; color: white; text-decoration: none; border-radius: 4px; font-size: 16px; border: none; cursor: pointer; transition: background-color 0.3s ease;">See all lists</a>
