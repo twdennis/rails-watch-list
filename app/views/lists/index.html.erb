@@ -1,8 +1,12 @@
-<h1>Lists view</h1>
-<%= link_to 'New List', new_list_path %>
+<div style="margin:10px">
+  <h1>Lists view</h1>
+</div>
+<div style="margin:10px">
+  <a href="<%= new_list_path %>" style="display: inline-block; padding: 10px 20px; margin-top: 10px; background-color: #4caf50; color: white; text-decoration: none; border-radius: 4px; font-size: 16px; border: none; cursor: pointer; transition: background-color 0.3s ease;">New List</a>
+</div>
 <div style="padding: 10px">
   <% @lists.each do |list| %>
-    <p style="border: 1px solid black; padding: 5px; background-color: #eee; border-radius: 5px;">
+    <p style="border: 1px solid black; padding: 5px; background-color: #eee; border-radius: 5px; width: 25%; justify-content: centre; display: flex; margin: 10px 0;">
     <%= link_to list.name, list_path(list) %>
     </p>
   <% end %>
